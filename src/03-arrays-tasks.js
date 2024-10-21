@@ -20,7 +20,7 @@
  *    ['Array', 'Number', 'string'], 'Date'    => -1
  *    [0, 1, 2, 3, 4, 5], 5    => 5
  */
-function findElement( arr, value) {
+function findElement(arr, value) {
   return arr.indexOf(value);
 }
 
@@ -35,12 +35,12 @@ function findElement( arr, value) {
  *    2 => [ 1, 3 ]
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
-function generateOdds( len ) {
+function generateOdds(len) {
   const oddNumbersArray = [];
-    for (let i = 0; i < len; i++) {
-        oddNumbersArray.push(i * 2 + 1);
-    }
-    return oddNumbersArray;
+  for (let i = 0; i < len; i++) {
+    oddNumbersArray.push(i * 2 + 1);
+  }
+  return oddNumbersArray;
 }
 
 
@@ -56,7 +56,7 @@ function generateOdds( len ) {
  *    [0, 1, 2, 3, 4, 5] => [0, 1, 2, 3, 4, 5,   0, 1, 2, 3, 4, 5]
  *    [] => []
  */
-function doubleArray( arr ) {
+function doubleArray(arr) {
   const dobleArr = [...arr, ...arr];
   return dobleArr;
 }
@@ -73,8 +73,14 @@ function doubleArray( arr ) {
  *    [-1, 2, -5, -4, 0] => [ 2 ]
  *    [] => []
  */
-function getArrayOfPositives(/* arr */) {
-  throw new Error('Not implemented');
+function getArrayOfPositives(arr) {
+  const positiveArr = [];
+  for (const element of arr) {
+    if (element > 0) {
+      positiveArr.push(element)
+    }
+  }
+  return positiveArr;
 }
 
 /**
@@ -88,8 +94,14 @@ function getArrayOfPositives(/* arr */) {
  *    [ 1, 2, 3, 4, 5 ] => []
  *    [ 'cat, 'dog', 'raccoon' ] => [ 'cat', 'dog', 'raccoon' ]
  */
-function getArrayOfStrings(/* arr */) {
-  throw new Error('Not implemented');
+function getArrayOfStrings( arr ) {
+  const stringArr = [];
+  for (const element of arr) {
+    if (typeof element === 'string') {
+      stringArr.push(element);
+    }
+  }
+  return stringArr;
 }
 
 /**
@@ -105,8 +117,14 @@ function getArrayOfStrings(/* arr */) {
  *    [ 1, 2, 3, 4, 5, 'false' ]         => [ 1, 2, 3, 4, 5, 'false' ]
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
-function removeFalsyValues(/* arr */) {
-  throw new Error('Not implemented');
+function removeFalsyValues( arr ) {
+  const numbStrArr = [];
+  for (const element of arr) {
+    if (typeof element === 'string' || typeof element === 'number') {
+      numbStrArr.push(element);
+    }
+  }
+  return numbStrArr;
 }
 
 /**
@@ -120,8 +138,12 @@ function removeFalsyValues(/* arr */) {
  *    => [ 'PERMANENT-INTERNSHIP', 'GLUTINOUS-SHRIEK', 'MULTIPLICATIVE-ELEVATION' ],
  *    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]  => [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
  */
-function getUpperCaseStrings(/* arr */) {
-  throw new Error('Not implemented');
+function getUpperCaseStrings(arr ) {
+  const upperCaseArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    upperCaseArr.push(arr[i].toUpperCase());
+  }
+  return upperCaseArr;
 }
 
 
@@ -135,8 +157,12 @@ function getUpperCaseStrings(/* arr */) {
  *    [ '', 'a', 'bc', 'def', 'ghij' ]  => [ 0, 1, 2, 3, 4 ]
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
-function getStringsLength(/* arr */) {
-  throw new Error('Not implemented');
+function getStringsLength( arr ) {
+  const stringLenArr = [];
+  for (const element of arr) {
+    stringLenArr.push(element.length);
+  }
+  return stringLenArr;
 }
 
 /**
@@ -150,8 +176,8 @@ function getStringsLength(/* arr */) {
  *    [ 1, 3, 4, 5 ], 2, 1  => [ 1, 2, 3, 4, 5 ]
  *    [ 1, 'b', 'c'], 'x', 0  => [ 'x', 1, 'b', 'c' ]
  */
-function insertItem(/* arr, item, index */) {
-  throw new Error('Not implemented');
+function insertItem( arr, item, index ) {
+  return arr.splice(index, 0, item);
 }
 
 /**
