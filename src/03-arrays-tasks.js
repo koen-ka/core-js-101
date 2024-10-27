@@ -37,7 +37,7 @@ function findElement(arr, value) {
  */
 function generateOdds(len) {
   const oddNumbersArray = [];
-  for (let i = 0; i < len; i++) {
+  for (let i = 0; i < len; i += 1) {
     oddNumbersArray.push(i * 2 + 1);
   }
   return oddNumbersArray;
@@ -74,13 +74,7 @@ function doubleArray(arr) {
  *    [] => []
  */
 function getArrayOfPositives(arr) {
-  const positiveArr = [];
-  for (const element of arr) {
-    if (element > 0) {
-      positiveArr.push(element)
-    }
-  }
-  return positiveArr;
+  return arr.filter((element) => element > 0);
 }
 
 /**
@@ -95,13 +89,7 @@ function getArrayOfPositives(arr) {
  *    [ 'cat, 'dog', 'raccoon' ] => [ 'cat', 'dog', 'raccoon' ]
  */
 function getArrayOfStrings(arr) {
-  const stringArr = [];
-  for (const element of arr) {
-    if (typeof element === 'string') {
-      stringArr.push(element);
-    }
-  }
-  return stringArr;
+  return arr.filter((element) => typeof element === 'string');
 }
 
 /**
@@ -118,13 +106,7 @@ function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-  const numbStrArr = [];
-  for (const element of arr) {
-    if (typeof element === 'string' || typeof element === 'number') {
-      numbStrArr.push(element);
-    }
-  }
-  return numbStrArr;
+  return arr.filter((element) => typeof element === 'string' || typeof element === 'number');
 }
 
 /**
@@ -139,11 +121,7 @@ function removeFalsyValues(arr) {
  *    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]  => [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
  */
 function getUpperCaseStrings(arr) {
-  const upperCaseArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    upperCaseArr.push(arr[i].toUpperCase());
-  }
-  return upperCaseArr;
+  return arr.map((element) => element.toUpperCase());
 }
 
 
@@ -158,11 +136,7 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-  const stringLenArr = [];
-  for (const element of arr) {
-    stringLenArr.push(element.length);
-  }
-  return stringLenArr;
+  return arr.filter((elem) => arr.push(elem.length));
 }
 
 /**
@@ -177,7 +151,8 @@ function getStringsLength(arr) {
  *    [ 1, 'b', 'c'], 'x', 0  => [ 'x', 1, 'b', 'c' ]
  */
 function insertItem(arr, item, index) {
-  return arr.splice(index, 0, item);
+  arr.splice(index, 0, item);
+  return arr;
 }
 
 /**
@@ -231,7 +206,7 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-  return arr.map(row => row.join(',')).join('\n');
+  return arr.map((row) => row.join(',')).join('\n');
 }
 
 /**
@@ -246,7 +221,7 @@ function toCsvText(arr) {
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
 function toArrayOfSquares(arr) {
-  return arr.map(x => x * x);
+  return arr.map((x) => x * x);
 }
 
 
@@ -266,7 +241,10 @@ function toArrayOfSquares(arr) {
  */
 function getMovingSum(arr) {
   let sum = 0;
-  return arr.map(value => sum += value);
+  return arr.map((value) => {
+    sum += value;
+    return sum;
+  });
 }
 
 /**
@@ -336,7 +314,7 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-  return arr.filter(item => typeof item === 'number' && item > 0).length;
+  return arr.filter((item) => typeof item === 'number' && item > 0).length;
 }
 
 /**
